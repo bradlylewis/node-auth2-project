@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs")
 const User = require('../users/users-model');
 const { default: jwtDecode } = require("jwt-decode");
 
+
 router.post("/register", validateRoleName, (req, res, next) => {
     const { username, password } = req.body
     const { role_name } = req
