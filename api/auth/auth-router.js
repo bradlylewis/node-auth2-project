@@ -6,17 +6,6 @@ const User = require('../users/users-model');
 const { default: jwtDecode } = require("jwt-decode");
 
 router.post("/register", validateRoleName, (req, res, next) => {
-  /**
-    [POST] /api/auth/register { "username": "anna", "password": "1234", "role_name": "angel" }
-
-    response:
-    status 201
-    {
-      "user"_id: 3,
-      "username": "anna",
-      "role_name": "angel"
-    }
-   */
     const { username, password } = req.body
     const { role_name } = req
     const hash = bcrypt.hashSync(password, 8)
